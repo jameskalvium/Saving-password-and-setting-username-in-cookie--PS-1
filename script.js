@@ -20,5 +20,22 @@ document.addEventListener('DOMContentLoaded', function() {
   // 4. Display the count on the webpage
 
   // your code here
-  
+
+  // Function to update the count
+  function updateCount() {
+    let count = Number(getCookie('count')); // Get existing count
+
+    if (count === null) {
+      count = 1; // Initialize if not set
+    } else {
+      count += 1; // Increment count
+    }
+
+    setCookie('count', count, 7); // Update cookie (7 days expiry)
+
+    // Display the count on the webpage
+    document.getElementById('countDisplay').innerText = `Page visits: ${count}`;
+  }
+
+  updateCount(); // Run the function on page load
 });
